@@ -1,6 +1,9 @@
 import React from "react";
 
-function GuessInput() {
+/**
+ * @param {{submitGuess: (guess: string) => void}} props
+ */
+function GuessInput({ submitGuess }) {
     const [guess, setGuess] = React.useState("");
 
     return (
@@ -9,6 +12,7 @@ function GuessInput() {
             onSubmit={(event) => {
                 event.preventDefault();
                 console.log(guess);
+                submitGuess(guess);
                 setGuess("");
             }}
         >
