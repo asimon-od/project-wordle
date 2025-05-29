@@ -3,6 +3,11 @@
  * solving algorithm!
  */
 
+/**
+ * @param {string} guess 
+ * @param {string} answer 
+ * @returns {{letter: string, status: "correct" | "incorrect" | "misplaced"}[] | null}
+ */
 export function checkGuess(guess, answer) {
   // This constant is a placeholder that indicates we've successfully
   // dealt with this character (it's correct, or misplaced).
