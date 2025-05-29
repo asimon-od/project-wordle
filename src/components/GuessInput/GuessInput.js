@@ -26,6 +26,7 @@ function GuessInput({ submitGuess }) {
                 }}
                 minLength={5} /* We will learn why this is funky */
                 maxLength={5}
+                pattern={'[a-zA-Z]{5}'}
             />
         </form>
     );

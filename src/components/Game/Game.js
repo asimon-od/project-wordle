@@ -4,6 +4,8 @@ import { sample } from "../../utils";
 import { WORDS } from "../../data";
 import GuessInput from "../GuessInput";
 import GuessResults from "../GuessResults/GuessResults";
+import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
+
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -11,7 +13,7 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 /** @type {string[]} */
-const defaultGuesses = Array.from({ length: 5 }, () => "     ");
+const defaultGuesses = Array.from({ length: NUM_OF_GUESSES_ALLOWED }, () => "     ");
 
 function Game() {
     const [guesses, setGuesses] = React.useState(defaultGuesses);
@@ -20,7 +22,12 @@ function Game() {
             <GuessResults guesses={guesses} />
             <GuessInput
                 submitGuess={(guess) => {
-                    const newGuesses = [...guesses, guess];
+                    const guessesSoFar = guesses.filter(x => x.trim()).length
+                    if (guessesSoFar >= NUM_OF_GUESSES_ALLOWED) {
+                        return;
+                    }
+                    const newGuesses = [...guesses];
+                    newGuesses[guessesSoFar] = guess;
                     setGuesses(newGuesses);
                 }}
             />
