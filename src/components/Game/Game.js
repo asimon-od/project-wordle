@@ -11,7 +11,7 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 /** @type {string[]} */
-const defaultGuesses = [];
+const defaultGuesses = Array.from({ length: 5 }, () => "     ");
 
 function Game() {
     const [guesses, setGuesses] = React.useState(defaultGuesses);
