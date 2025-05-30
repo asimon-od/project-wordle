@@ -15,22 +15,22 @@ console.info({ answer });
 const defaultGuesses = [];
 
 function Game() {
-    const [guesses, setGuesses] = React.useState(defaultGuesses);
-    return (
-        <>
-            <GuessResults guesses={guesses} answer={answer} />
-            <GuessInput
-                submitGuess={(guess) => {
-                    const guessesSoFar = length;
-                    if (guessesSoFar >= NUM_OF_GUESSES_ALLOWED) {
-                        return;
-                    }
-                    const newGuesses = [...guesses, guess];
-                    setGuesses(newGuesses);
-                }}
-            />
-        </>
-    );
+  const [guesses, setGuesses] = React.useState(defaultGuesses);
+  return (
+    <>
+      <GuessResults guesses={guesses} answer={answer} />
+      <GuessInput
+        submitGuess={(guess) => {
+          const guessesSoFar = guesses.length;
+          if (guessesSoFar >= NUM_OF_GUESSES_ALLOWED) {
+            return;
+          }
+          const newGuesses = [...guesses, guess];
+          setGuesses(newGuesses);
+        }}
+      />
+    </>
+  );
 }
 
 export default Game;
