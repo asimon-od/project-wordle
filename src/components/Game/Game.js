@@ -13,21 +13,20 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 /** @type {string[]} */
-const defaultGuesses = Array.from({ length: NUM_OF_GUESSES_ALLOWED }, () => "     ");
+const defaultGuesses = [];
 
 function Game() {
     const [guesses, setGuesses] = React.useState(defaultGuesses);
     return (
         <>
-            <GuessResults guesses={guesses} />
+            <GuessResults guesses={guesses} answer={answer} />
             <GuessInput
                 submitGuess={(guess) => {
-                    const guessesSoFar = guesses.filter(x => x.trim()).length
+                    const guessesSoFar = length
                     if (guessesSoFar >= NUM_OF_GUESSES_ALLOWED) {
                         return;
                     }
-                    const newGuesses = [...guesses];
-                    newGuesses[guessesSoFar] = guess;
+                    const newGuesses = [...guesses, guess];
                     setGuesses(newGuesses);
                 }}
             />
