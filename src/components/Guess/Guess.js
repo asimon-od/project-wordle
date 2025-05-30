@@ -1,18 +1,18 @@
 import React from "react";
-import {checkGuess} from "../../game-helpers";
+import { checkGuess } from "../../game-helpers";
 /**
  * @param {{ guess: string | undefined, answer: string }} props
  */
 function Guess({ guess, answer }) {
-    const parsedGuess = checkGuess(guess, answer)
+    const parsedGuess = checkGuess(guess, answer);
     if (!parsedGuess) {
         return (
             <p className="guess">
-                <span className={"cell"} />
-                <span className={"cell"} />
-                <span className={"cell"} />
-                <span className={"cell"} />
-                <span className={"cell"} />
+                <span className="cell" />
+                <span className="cell" />
+                <span className="cell" />
+                <span className="cell" />
+                <span className="cell" />
             </p>
         );
     }
