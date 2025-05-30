@@ -1,7 +1,7 @@
 import React from "react";
 import {checkGuess} from "../../game-helpers";
 /**
- * @param {{ guess: string, answer: string }} props
+ * @param {{ guess: string | undefined, answer: string }} props
  */
 function Guess({ guess, answer }) {
     const parsedGuess = checkGuess(guess, answer)

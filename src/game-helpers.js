@@ -4,7 +4,7 @@
  */
 
 /**
- * @param {string} guess 
+ * @param {string | undefined} guess 
  * @param {string} answer 
  * @returns {{letter: string, status: "correct" | "incorrect" | "misplaced"}[] | null}
  */
