@@ -1,9 +1,9 @@
 import React from "react";
 
 /**
- * @param {{submitGuess: (guess: string) => void}} props
+ * @param {{submitGuess: (guess: string) => void, disabled: boolean}} props
  */
-function GuessInput({ submitGuess }) {
+function GuessInput({ submitGuess, disabled }) {
     const [guess, setGuess] = React.useState("");
 
     return (
@@ -18,6 +18,7 @@ function GuessInput({ submitGuess }) {
         >
             <label htmlFor="guess-input">Enter guess:</label>
             <input
+                disabled={disabled}
                 id="guess-input"
                 type="text"
                 value={guess}
